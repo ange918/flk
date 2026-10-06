@@ -74,11 +74,11 @@ export function AppShell({
         <header className="top">
           <div className="row gap12">
             <button className="menu-btn btn ghost sm" aria-label="Ouvrir le menu" onClick={() => setOpen(true)}>
-              <Icon name="menu" size={16} />
+              <Icon name="menu" size={18} />
             </button>
-            <span className="eyebrow">{crumb ?? `${CRUMBS[role]} · ${labelFor(role, key)}`}</span>
+            <span className="eyebrow crumb">{crumb ?? `${CRUMBS[role]} · ${labelFor(role, key)}`}</span>
           </div>
-          <div className="row gap16">
+          <div className="row gap16 top-tools">
             {showSearch ? (
               <div className="search" style={{ position: "relative" }}>
                 <Icon name="search" size={16} />
@@ -88,7 +88,7 @@ export function AppShell({
                   placeholder={search}
                   aria-label="Recherche"
                 />
-                <span style={{ fontSize: 11, border: "1px solid var(--ligne-fonce)", borderRadius: 16, padding: "0 6px" }}>⌘K</span>
+                <span className="kbd-hint" style={{ fontSize: 11, border: "1px solid var(--ligne-fonce)", borderRadius: 16, padding: "0 6px" }}>⌘K</span>
                 {q && hits.length > 0 ? (
                   <div className="card" style={{ position: "absolute", top: 46, left: 0, right: 0, padding: 8, zIndex: 30 }}>
                     {hits.map((h) => (
@@ -105,10 +105,22 @@ export function AppShell({
               <Icon name="bell" size={20} />
               <span style={{ position: "absolute", top: -2, right: -2, width: 8, height: 8, borderRadius: "50%", background: "var(--terra)" }} />
             </span>
-            <span className="badge b-line">Année 2026–2027</span>
+            <span className="badge b-line year-chip">Année 2026–2027</span>
           </div>
         </header>
         <main className="content">{children}</main>
+        <nav className="mobile-tabbar" aria-label="Navigation">
+          {MENUS[role].flatMap((item) => ("href" in item ? [item] : [])).slice(0, 4).map((item) => (
+            <Link key={item.href} href={item.href} className={key === item.key ? "on" : ""} onClick={() => setOpen(false)}>
+              <Icon name={item.icon as IconName} size={20} />
+              <span>{item.label.split(" ")[0]}</span>
+            </Link>
+          ))}
+          <button type="button" onClick={() => setOpen(true)} aria-label="Ouvrir le menu">
+            <Icon name="menu" size={20} />
+            <span>Menu</span>
+          </button>
+        </nav>
         <div className="ex-note" style={{ padding: "16px 40px 28px", borderTop: "1px solid var(--ligne)", display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
           <span>Données d’exemple — maquette non contractuelle</span>
           <span>ISDAM · solution marque blanche</span>

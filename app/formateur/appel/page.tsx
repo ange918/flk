@@ -54,7 +54,7 @@ export default function AppelPage() {
               </div>
               <div className="row" style={{ border: "1px solid var(--ligne)", borderRadius: 999, overflow: "hidden" }}>
                 {(["P", "R", "A"] as Mark[]).map((k) => (
-                  <button key={k} onClick={() => setMarks((m) => ({ ...m, [s.name]: k }))} style={{ width: 32, height: 30, fontSize: 12, fontWeight: 800, background: k === v ? (k === "P" ? "var(--noir)" : k === "R" ? "var(--ocre)" : "var(--rouge)") : "transparent", color: k === v ? "#fff" : "var(--taupe)" }}>{k}</button>
+                  <button key={k} onClick={() => setMarks((m) => ({ ...m, [s.name]: k }))} style={{ width: 44, height: 44, fontSize: 13, fontWeight: 800, background: k === v ? (k === "P" ? "var(--noir)" : k === "R" ? "var(--ocre)" : "var(--rouge)") : "transparent", color: k === v ? "#fff" : "var(--taupe)" }}>{k}</button>
                 ))}
               </div>
             </div>

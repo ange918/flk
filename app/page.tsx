@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { PublicHeader } from "@/components/public-header";
+import { VitrineMobile } from "@/components/vitrine-mobile";
 import { Avatar, Logo, Photo, SiteFooter } from "@/components/ui";
 import { fcfaN } from "@/lib/brand";
 import { FORMATIONS, img } from "@/lib/data";
@@ -13,7 +14,8 @@ const filieres = ["Stylisme", "Modélisme", "Design textile", "Couture", "Image 
 export default function VitrinePage() {
   const featured = FORMATIONS.slice(0, 4);
   return (
-    <div className="mesh" style={{ backgroundColor: "var(--ivoire)" }}>
+    <>
+    <div className="mesh only-md" style={{ backgroundColor: "var(--ivoire)" }}>
       <PublicHeader />
       <section className="hero-grid mesh" style={{ padding: "72px 64px 64px", borderBottom: "1px solid var(--ligne)" }}>
         <div>
@@ -41,7 +43,7 @@ export default function VitrinePage() {
         </div>
         <div style={{ position: "relative", maxWidth: 440, marginLeft: "auto", width: "100%" }}>
           <Photo src={img.runway} h={560} pos="center 28%" arch />
-          <div className="card" style={{ position: "absolute", left: -24, bottom: 28, padding: "14px 18px", maxWidth: 240 }}>
+          <div className="card hero-card" style={{ position: "absolute", left: -24, bottom: 28, padding: "14px 18px", maxWidth: 240 }}>
             <div className="eyebrow t">Défilé 2026</div>
             <div style={{ fontWeight: 800, fontSize: 14, marginTop: 4, fontFamily: "var(--display)" }}>« Terre rouge » — STY-2</div>
             <div className="muted" style={{ fontSize: 11, marginTop: 2 }}>Collection des 2es années</div>
@@ -187,5 +189,7 @@ export default function VitrinePage() {
       <SiteFooter />
       <span className="sr-only"><Logo /></span>
     </div>
+    <VitrineMobile />
+    </>
   );
 }

@@ -52,7 +52,7 @@ export default function EcheancierPage() {
         <div className="eyebrow">Payer la tranche 3 en avance</div>
         <div className="col gap8" style={{ marginTop: 12 }}>
           {ops.map((o, i) => (
-            <button key={o} className="row gap12" onClick={() => setMethod(i)} style={{ padding: "10px 12px", border: `1px solid ${method === i ? "var(--noir)" : "var(--ligne)"}`, borderRadius: 12, textAlign: "left" }}>
+            <button key={o} className="row gap12" onClick={() => setMethod(i)} style={{ minHeight: 48, padding: "12px 14px", border: `1px solid ${method === i ? "var(--noir)" : "var(--ligne)"}`, borderRadius: 12, textAlign: "left" }}>
               <span className={`radio ${method === i ? "on" : ""}`} />
               <span className="op-badge" style={{ height: 22, fontSize: 10 }}>{o}</span>
               {method === i ? <span className="muted" style={{ fontSize: 11.5, marginLeft: "auto" }}>+229 01 66 •• •• 07</span> : null}

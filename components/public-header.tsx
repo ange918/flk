@@ -18,13 +18,17 @@ export function PublicHeader({ active = "" }: { active?: string }) {
             {l.label}
           </Link>
         ))}
+        <Link className="btn ghost nav-cta" href="/connexion" onClick={() => setOpen(false)}>Se connecter</Link>
+        <Link className="btn terra nav-cta" href="/admission" onClick={() => setOpen(false)}>
+          Candidater <Icon name="arrow" size={14} />
+        </Link>
       </nav>
-      <div className="row gap12">
-        <button className="menu-btn btn ghost sm" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
-          <Icon name="menu" size={18} />
+      <div className="row gap12 nowrap">
+        <button className="menu-btn btn ghost sm" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+          <Icon name={open ? "x" : "menu"} size={18} />
         </button>
-        <Link className="btn ghost sm" href="/connexion">Se connecter</Link>
-        <Link className="btn terra sm" href="/admission">
+        <Link className="btn ghost sm desk-cta" href="/connexion">Se connecter</Link>
+        <Link className="btn terra sm desk-cta" href="/admission">
           Candidater <Icon name="arrow" size={14} />
         </Link>
       </div>
