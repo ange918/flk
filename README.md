@@ -1,16 +1,79 @@
-# React + Vite
+# ISDAM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de démonstration d’**ISDAM**, plateforme marque blanche pour académies de mode et de stylisme. Interface 100 % française, montants en FCFA, opérateurs Mobile Money en badges texte (MTN MoMo, Moov Money, FedaPay, CinetPay).
 
-Currently, two official plugins are available:
+Cette version est **frontend uniquement** : données fictives, connexions de démo, paiements simulés. Le backend (Supabase, authentification, encaissements) viendra ensuite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Lancer
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Production :
 
-## Expanding the ESLint configuration
+```bash
+npm run build
+npm start
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Ouvrir [http://localhost:3000](http://localhost:3000).
+
+La vitrine (`/`) est une seule page : maquette mobile sous 768 px, maquette desktop au-dessus. « Découvrir les formations » descend à `#ecole`. `/mobile` et `/formations` renvoient vers cette page. Les espaces direction, formateur et élève replient la barre latérale dans un menu, avec une barre de navigation en bas.
+
+## Comptes de démo
+
+Sur `/connexion`, choisir un rôle ou saisir l’e-mail. Le mot de passe n’est pas vérifié.
+
+| Rôle | E-mail | Espace |
+|------|--------|--------|
+| Direction | `direction@isdam.app` | `/admin` |
+| Formateur | `ornella.sossa@isdam.app` | `/formateur` |
+| Élève | `nadege.akpovi@isdam.app` | `/eleve` |
+
+## Carte des routes
+
+Les écrans suivent les maquettes 00–24 (marque **ISDAM** à la place du placeholder).
+
+| Maquette | Route |
+|----------|--------|
+| 00 Design system | `/design-system` |
+| 01–03 Vitrine et catalogue | `/` (`#ecole`, `#lookbook`, `#pedagogie`, `#temoignages`) |
+| 04 Admission | `/admission` |
+| 05 Paiement frais de dossier | `/paiement` |
+| 06 Connexion | `/connexion` |
+| 07 Direction — tableau de bord | `/admin` |
+| 08 Candidatures (kanban) | `/admin/candidatures` |
+| 09 Promotions & plannings | `/admin/promotions` |
+| 10 Scolarités & relances | `/admin/scolarites` |
+| 11 Reçu numérique | `/admin/recu` |
+| 12 Marque blanche | `/admin/marque-blanche` |
+| 13 Formateur — aujourd’hui | `/formateur` |
+| 14 Publication de brief | `/formateur/briefs/nouveau` |
+| 15 Correction annotée | `/formateur/corrections` |
+| 16 Appel / émargement | `/formateur/appel` |
+| 17 Saisie des notes | `/formateur/notes` |
+| 18 Élève — accueil | `/eleve` |
+| 19 Dépôt de rendu | `/eleve/depot` |
+| 20 Book | `/eleve/book` |
+| 21 Portfolio public | `/book/nadege-akpovi` |
+| 22 Bibliothèque | `/eleve/bibliotheque` |
+| 23a Mobile accueil | `/eleve/mobile` |
+| 23b Mobile échéancier | `/eleve/echeancier` |
+| 24 Bulletin & certificat | `/eleve/bulletin` |
+
+Les menus latéraux ouvrent aussi des listes complémentaires (élèves, formateurs, rapports, messages, plannings, paiements) alimentées par les mêmes données d’exemple.
+
+## Stack
+
+Next.js (App Router) · TypeScript · Tailwind CSS · Lexend & Manrope.
+
+Couleur d’accent `#E0218A`, encre `#1A1230`, surface `#FAFAFE`. Photos d’exemple dans `public/media`.
+
+## Backend plus tard
+
+Les modules `lib/brand.ts` marquent les points d’accroche :
+
+- client Supabase (auth, fichiers, RLS multi-tenant) ;
+- intents de paiement FedaPay, CinetPay ou Stripe — l’UI confirme sans aucun appel réseau.
