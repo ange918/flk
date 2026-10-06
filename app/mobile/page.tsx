@@ -1,8 +1,5 @@
-import type { Metadata } from "next";
-import { VitrineMobile } from "@/components/vitrine-mobile";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = { title: "Vitrine mobile" };
-
-export default function VitrineMobilePage() {
-  return <VitrineMobile framed />;
+export default function MobileRedirect() {
+  redirect("/");
 }

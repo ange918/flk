@@ -153,7 +153,7 @@ export function DemoBanner() {
 
 export const PUBLIC_LINKS = [
   { href: "/#ecole", label: "L’école" },
-  { href: "/formations", label: "Formations" },
+  { href: "/#ecole", label: "Formations" },
   { href: "/#lookbook", label: "Réalisations" },
   { href: "/admission", label: "Admissions" },
   { href: "/#temoignages", label: "Journal" },

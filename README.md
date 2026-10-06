@@ -20,7 +20,7 @@ npm start
 
 Ouvrir [http://localhost:3000](http://localhost:3000).
 
-Sur téléphone (≤ 760 px) la vitrine reprend la maquette mobile. Les espaces direction, formateur et élève replient la barre latérale dans un menu, avec une barre de navigation en bas. Tableaux, kanban et planning défilent horizontalement ; les formulaires passent sur une colonne.
+La vitrine (`/`) est une seule page : maquette mobile sous 768 px, maquette desktop au-dessus. « Découvrir les formations » descend à `#ecole`. `/mobile` et `/formations` renvoient vers cette page. Les espaces direction, formateur et élève replient la barre latérale dans un menu, avec une barre de navigation en bas.
 
 ## Comptes de démo
 
@@ -39,9 +39,7 @@ Les écrans suivent les maquettes 00–24 (marque **ISDAM** à la place du place
 | Maquette | Route |
 |----------|--------|
 | 00 Design system | `/design-system` |
-| 01 Vitrine | `/` |
-| 02 Vitrine mobile | `/mobile` |
-| 03 Catalogue | `/formations` |
+| 01–03 Vitrine et catalogue | `/` (`#ecole`, `#lookbook`, `#pedagogie`, `#temoignages`) |
 | 04 Admission | `/admission` |
 | 05 Paiement frais de dossier | `/paiement` |
 | 06 Connexion | `/connexion` |

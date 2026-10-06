@@ -24,7 +24,7 @@ export function PublicHeader({ active = "" }: { active?: string }) {
         </Link>
       </nav>
       <div className="row gap12 nowrap">
-        <button className="menu-btn btn ghost sm" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+        <button className="pub-menu btn ghost sm" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
           <Icon name={open ? "x" : "menu"} size={18} />
         </button>
         <Link className="btn ghost sm desk-cta" href="/connexion">Se connecter</Link>

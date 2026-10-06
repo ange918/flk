@@ -601,8 +601,8 @@ table.t.compact th, table.t.compact td { padding-left: 10px; padding-right: 10px
 .kanban > * { flex: 1 0 260px; max-width: 340px; min-width: 0; }
 .table-wrap, .card:has(table), .card:has(.cal-grid) { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .cal-grid { min-width: 720px; }
-.only-sm { display: none; }
 .mobile-tabbar { display: none; }
+.pub-menu { display: none; }
 .promo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
 .cal-grid { display: grid; grid-template-columns: 56px repeat(6, 1fr); }
 .scol-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
@@ -647,33 +647,12 @@ table.t.compact th, table.t.compact td { padding-left: 10px; padding-right: 10px
   .content { padding: 20px 16px 108px; }
   .top { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
   .year-chip, .kbd-hint, .top .search { display: none; }
-  .pub-header, .site-footer { padding-left: 16px; padding-right: 16px; }
   .pub-header { position: sticky; }
-  .pub-nav { display: none; }
-  .pub-nav.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 8px 16px 16px;
-    border-bottom: 1px solid var(--ligne);
-    gap: 4px;
-    z-index: 40;
-    box-shadow: var(--shadow-card);
-  }
-  .pub-nav.open a { min-height: 44px; display: flex; align-items: center; }
-  .pub-nav.open .nav-cta { display: inline-flex; width: 100%; margin-top: 6px; }
-  .hero-grid, .two, .cta-grid, .cat-hero, .cat-body, .adm-grid, .pay-grid, .login-grid,
+  .hero-grid, .cat-hero, .cat-body, .adm-grid, .pay-grid, .login-grid,
   .dash-2, .dash-3, .form-split, .scol-grid, .corr-grid, .book-grid, .lib-grid, .wl-grid, .doc-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-  .cards-4, .three, .kpi-grid, .promo-grid, .res-grid { grid-template-columns: 1fr 1fr; }
-  .look-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .look-grid figure { min-height: 180px; }
-  .look-grid figure:first-child, .look-grid figure:nth-child(4) { grid-row: auto; }
+  .kpi-grid, .promo-grid, .res-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .h-page { font-size: clamp(30px, 6vw, 36px); }
   .masonry { columns: 2; }
@@ -758,17 +737,108 @@ table.t.compact th, table.t.compact td { padding-left: 10px; padding-right: 10px
     padding-bottom: 10px;
   }
   .input, input, select, textarea { font-size: 16px; }
-  .desk-cta { display: none !important; }
 }
 @media (max-width: 720px) {
-  .cards-4, .three, .kpi-grid, .promo-grid, .res-grid, .foot-grid, .look-grid { grid-template-columns: 1fr; }
+  .kpi-grid, .promo-grid, .res-grid, .foot-grid { grid-template-columns: 1fr; }
   .masonry { columns: 1; }
-  .pub-header .wordmark small { display: none; }
 }
-@media (max-width: 760px) {
-  .only-md { display: none !important; }
-  .only-sm { display: block; }
+@media (max-width: 1100px) {
+  .pub-header .wordmark small { display: none; }
+  .pub-nav { gap: 18px; }
 }
 @media (min-width: 1181px) {
   .kanban > * { flex: 1 1 0; max-width: none; }
+}
+
+/* Landing: one page, mobile first, desktop from 768px */
+.landing section[id], .landing #formations { scroll-margin-top: 88px; }
+.sm-only { display: inline; }
+.md-only { display: none !important; }
+.land-hero { display: grid; padding: 22px 20px 8px; }
+.land-hero-photo { position: relative; margin-top: 22px; }
+.land-hero-cap {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(26, 18, 48, .72);
+  color: #fff;
+  padding: 6px 10px;
+}
+.land-hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.land-hero-actions .btn { width: 100%; }
+.land-lead { font-size: 15px; line-height: 1.6; margin-top: 22px; color: var(--noir-3); }
+.stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; gap: 8px; margin: 8px 0 12px; padding: 16px 0; border-top: 1px solid var(--ligne); border-bottom: 1px solid var(--ligne); }
+.land-pad { padding: 36px 20px; }
+.land-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+.land-h2 { margin-top: 8px; }
+.filiere-row { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--ligne); min-height: 44px; }
+.look-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+.look-caps { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 16px; margin-top: 14px; font-size: 11.5px; color: #B8B4C8; letter-spacing: .04em; }
+.ped-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 18px 0; border-top: 1px solid var(--ligne); }
+.landing .hero-title { margin-top: 14px; color: var(--terra); font-size: 52px !important; line-height: .92 !important; letter-spacing: -.03em; }
+.landing .land-h2 { font-size: 34px !important; line-height: 1.05 !important; }
+.landing .land-cta { display: none; }
+.landing .land-ped-photo { height: 280px !important; }
+.hero-card { position: absolute; left: -24px; bottom: 28px; padding: 14px 18px; max-width: 240px; }
+
+@media (max-width: 767px) {
+  .pub-menu { display: inline-flex; min-width: 44px; min-height: 44px; padding: 0 12px; }
+  .pub-header { padding-left: 16px; padding-right: 16px; }
+  .pub-nav { display: none; }
+  .pub-nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 8px 16px 16px;
+    border-bottom: 1px solid var(--ligne);
+    gap: 4px;
+    z-index: 40;
+    box-shadow: var(--shadow-card);
+  }
+  .pub-nav.open a { min-height: 44px; display: flex; align-items: center; }
+  .pub-nav.open .nav-cta { display: inline-flex; width: 100%; margin-top: 6px; }
+  .desk-cta { display: none !important; }
+  .landing .two, .landing .cta-grid, .landing .three { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  div.sm-only, section.sm-only { display: block !important; }
+  .look-mini.sm-only { display: grid !important; }
+}
+
+@media (min-width: 768px) {
+  .sm-only { display: none !important; }
+  .md-only { display: inline !important; }
+  section.md-only, div.md-only, figure.md-only, p.md-only, article.md-only { display: block !important; }
+  .marquee.md-only, .land-hero-actions { display: flex !important; }
+  .cards-4.md-only, .look-grid.md-only, .look-caps.md-only { display: grid !important; }
+  .landing .land-hero {
+    grid-template-columns: 1.05fr .95fr;
+    gap: 48px;
+    align-items: center;
+    padding: 72px 64px 64px !important;
+    border-bottom: 1px solid var(--ligne);
+  }
+  .landing .land-hero-photo { margin-top: 0; max-width: 440px; margin-left: auto; width: 100%; }
+  .landing .land-hero-ph { height: 560px !important; }
+  .landing .land-lead { max-width: 480px; margin-top: 22px; font-size: 17px; line-height: 1.65; color: var(--taupe); }
+  .landing .land-hero-actions { flex-direction: row; flex-wrap: wrap; margin-top: 32px; }
+  .landing .land-hero-actions .btn { width: auto; }
+  .landing .stat-row { display: flex; text-align: left; gap: 32px; margin-top: 40px; padding: 0; border: 0; }
+  .landing .land-pad { padding: 96px 64px !important; }
+  .landing .land-head { flex-direction: row; align-items: flex-end; justify-content: space-between; margin-bottom: 44px; gap: 24px; }
+  .landing .hero-title { font-size: 72px !important; line-height: 1.02 !important; margin-top: 8px; }
+  .landing .land-h2 { font-size: 60px !important; margin-top: 12px; }
+  .landing .land-cta { display: block; font-size: 84px !important; line-height: .92 !important; margin-top: 16px; color: var(--terra); }
+  .landing .land-ped-photo { height: 520px !important; }
+  .landing .ped-row { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 22px 0; }
+  .landing .hero-card { position: absolute !important; left: -24px !important; bottom: 28px; margin-top: 0 !important; max-width: 240px !important; }
+  .pub-header { padding-left: 28px; padding-right: 28px; }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .cards-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1100px) {
+  .pub-header, .landing .site-footer { padding-left: 64px; padding-right: 64px; }
 }

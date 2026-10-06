@@ -22,7 +22,7 @@ export default function AdminFormationsPage() {
             </div>
             <div style={{ textAlign: "right" }}>
               <div className="num" style={{ fontSize: 22 }}>{fcfa(f.tarif)}</div>
-              <Link className="link" href="/formations">Voir la vitrine</Link>
+              <Link className="link" href="/#ecole">Voir la vitrine</Link>
             </div>
           </article>
         ))}
