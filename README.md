@@ -20,6 +20,8 @@ npm start
 
 Ouvrir [http://localhost:3000](http://localhost:3000).
 
+Sur téléphone (≤ 760 px) la vitrine reprend la maquette mobile. Les espaces direction, formateur et élève replient la barre latérale dans un menu, avec une barre de navigation en bas. Tableaux, kanban et planning défilent horizontalement ; les formulaires passent sur une colonne.
+
 ## Comptes de démo
 
 Sur `/connexion`, choisir un rôle ou saisir l’e-mail. Le mot de passe n’est pas vérifié.
